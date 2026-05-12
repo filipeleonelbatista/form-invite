@@ -75,7 +75,8 @@ body {
    Sidebar
 ───────────────────────────────────────── */
 .sidebar {
-  width: clamp(240px, 30%, 340px);
+  width: 30%;
+  min-width: 240px;
   height: 100vh;
   background: var(--shape-bg);
   display: flex;
@@ -126,7 +127,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
 }
 
@@ -142,8 +143,7 @@ body {
 }
 
 .main-inner {
-  padding: 48px 48px 80px;
-  max-width: 800px;
+  padding: 48px 56px 80px;
 }
 
 .page-title {
@@ -406,11 +406,7 @@ body {
 
 .theme-img {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
+  aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
 }
@@ -550,6 +546,10 @@ input[type="file"] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.file-wrap--error .file-btn {
+  border-color: var(--danger);
 }
 
 /* ─────────────────────────────────────────
