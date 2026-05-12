@@ -301,17 +301,21 @@ body {
   background: var(--input-base);
   border: 1px solid var(--input-stroke);
   border-radius: 8px;
-  overflow: hidden;
+  padding: 4px;
+  gap: 4px;
 }
 
 .seg-btn {
   display: flex;
+  flex: 1;
   align-items: center;
-  gap: 7px;
-  padding: 10px 16px;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 4px;
   background: transparent;
   border: none;
-  border-right: 1px solid var(--input-stroke);
+  border-radius: 4px;
   color: var(--text-body);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -320,13 +324,9 @@ body {
   white-space: nowrap;
 }
 
-.seg-btn:last-child {
-  border-right: none;
-}
-
 .seg-btn svg {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 }
 
 .seg-btn--active {
@@ -337,10 +337,6 @@ body {
 
 .seg-btn--active svg {
   color: var(--brand-light);
-}
-
-.seg-btn:not(.seg-btn--active):hover {
-  background: var(--shape-hover);
 }
 
 /* ─────────────────────────────────────────
