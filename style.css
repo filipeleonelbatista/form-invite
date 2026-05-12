@@ -335,6 +335,10 @@ body {
   font-weight: 600;
 }
 
+.seg-btn--active svg {
+  color: var(--brand-light);
+}
+
 .seg-btn:not(.seg-btn--active):hover {
   background: var(--shape-hover);
 }
@@ -534,6 +538,7 @@ body {
 .file-btn svg {
   width: 16px;
   height: 16px;
+  color: var(--brand-light);
 }
 
 input[type="file"] {
