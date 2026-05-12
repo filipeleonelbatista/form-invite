@@ -390,13 +390,15 @@ body {
 }
 
 .theme-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   background: var(--shape-button);
-  border: 2px solid transparent;
+  border: 1px solid var(--input-stroke);
   border-radius: 8px;
-  padding: 0;
+  padding: 4px 4px 8px;
   cursor: pointer;
-  overflow: hidden;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s;
   text-align: center;
 }
 
@@ -413,19 +415,17 @@ body {
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
+  border-radius: 4px;
 }
 
 .theme-label {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Open Sans', sans-serif;
-  color: var(--text-body);
-  padding: 6px 4px 8px;
-  line-height: 1.2;
-}
-
-.theme-btn--selected .theme-label {
+  font-weight: 400;
   color: var(--text-heading);
+  line-height: 1.36;
+  text-align: center;
 }
 
 /* Theme images */
