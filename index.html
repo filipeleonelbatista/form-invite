@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festivite — Crie seu convite digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Leckerli+One&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <img src="assets/Logo.svg" alt="" class="logo-icon" onerror="this.style.display='none'">
+          <span class="logo-text">Festivite</span>
+        </div>
+        <p class="sidebar-tagline">Crie um convite digital para o seu evento</p>
+      </div>
+      <div class="sidebar-image">
+        <img src="assets/Background.png" alt="Bolo de aniversário">
+      </div>
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="main">
+      <div class="main-inner">
+        <h1 class="page-title">Crie seu convite</h1>
+
+        <form id="invite-form" novalidate>
+
+          <!-- ──────────────────────────────── -->
+          <!-- Section: Sobre o evento          -->
+          <!-- ──────────────────────────────── -->
+          <section class="form-section">
+            <h2 class="section-heading">
+              <i data-lucide="calendar-days"></i>
+              Sobre o evento
+            </h2>
+
+            <div class="field">
+              <label class="field-label" for="title">Título</label>
+              <input
+                class="input"
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Nome do evento"
+                required
+              >
+              <span class="error-msg" id="title-error">
+                <i data-lucide="alert-circle"></i>
+                Campo obrigatório
+              </span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="field-label" for="start-date">Início</label>
+                <input
+                  class="input input--date"
+                  type="datetime-local"
+                  id="start-date"
+                  name="start-date"
+                >
+              </div>
+              <div class="field">
+                <label class="field-label" for="end-date">Fim</label>
+                <input
+                  class="input input--date"
+                  type="datetime-local"
+                  id="end-date"
+                  name="end-date"
+                >
+              </div>
+            </div>
+
+            <div class="field-row field-row--type-location">
+              <div class="field">
+                <label class="field-label">Tipo</label>
+                <div class="segmented" role="group" aria-label="Tipo de evento">
+                  <button type="button" class="seg-btn seg-btn--active" data-value="presencial">
+                    <i data-lucide="building-2"></i>
+                    Presencial
+                  </button>
+                  <button type="button" class="seg-btn" data-value="online">
+                    <i data-lucide="wifi"></i>
+                    Online
+                  </button>
+                </div>
+                <input type="hidden" name="event-type" id="event-type" value="presencial">
+              </div>
+              <div class="field">
+                <label class="field-label" for="location">Local</label>
+                <input
+                  class="input"
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Link ou endereço"
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="description">Descrição</label>
+              <textarea
+                class="textarea"
+                id="description"
+                name="description"
+                placeholder="Escreva sobre os detalhes do evento"
+                rows="5"
+              ></textarea>
+            </div>
+          </section>
+
+          <!-- ──────────────────────────────── -->
+          <!-- Section: Personalização          -->
+          <!-- ──────────────────────────────── -->
+          <section class="form-section">
+            <h2 class="section-heading">
+              <i data-lucide="palette"></i>
+              Personalização
+            </h2>
+
+            <!-- Color palette -->
+            <div class="field">
+              <label class="field-label">Cor principal</label>
+              <div class="color-palette" role="group" aria-label="Cor principal">
+                <button type="button" class="color-btn" style="--c:#59B2FF" data-color="#59B2FF" aria-label="Azul" title="Azul"></button>
+                <button type="button" class="color-btn" style="--c:#6A59FF" data-color="#6A59FF" aria-label="Índigo" title="Índigo"></button>
+                <button type="button" class="color-btn" style="--c:#B259FF" data-color="#B259FF" aria-label="Roxo" title="Roxo"></button>
+                <button type="button" class="color-btn" style="--c:#FF59F9" data-color="#FF59F9" aria-label="Fúcsia" title="Fúcsia"></button>
+                <button type="button" class="color-btn color-btn--selected" style="--c:#FF59B8" data-color="#FF59B8" aria-label="Rosa" title="Rosa" aria-pressed="true"></button>
+                <button type="button" class="color-btn" style="--c:#FF5959" data-color="#FF5959" aria-label="Vermelho" title="Vermelho"></button>
+                <button type="button" class="color-btn" style="--c:#FFB809" data-color="#FFB809" aria-label="Laranja" title="Laranja"></button>
+                <button type="button" class="color-btn" style="--c:#FFCD09" data-color="#FFCD09" aria-label="Amarelo" title="Amarelo"></button>
+                <button type="button" class="color-btn" style="--c:#E5FF59" data-color="#E5FF59" aria-label="Lima" title="Lima"></button>
+                <button type="button" class="color-btn" style="--c:#59FF91" data-color="#59FF91" aria-label="Verde" title="Verde"></button>
+                <button type="button" class="color-btn" style="--c:#59FFF9" data-color="#59FFF9" aria-label="Ciano" title="Ciano"></button>
+              </div>
+              <input type="hidden" name="primary-color" id="primary-color" value="#FF59B8">
+            </div>
+
+            <!-- Theme grid -->
+            <div class="field">
+              <label class="field-label">Tema do evento</label>
+              <div class="themes-grid" role="group" aria-label="Tema do evento">
+
+                <button type="button" class="theme-btn theme-btn--selected" data-theme="aniversario" aria-pressed="true">
+                  <div class="theme-img theme-img--aniversario"><span>🎂</span></div>
+                  <span class="theme-label">Aniversário</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="infantil" aria-pressed="false">
+                  <div class="theme-img theme-img--infantil"><span>🎈</span></div>
+                  <span class="theme-label">Infantil</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="formatura" aria-pressed="false">
+                  <div class="theme-img theme-img--formatura"><span>🎓</span></div>
+                  <span class="theme-label">Formatura</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="casamento" aria-pressed="false">
+                  <div class="theme-img theme-img--casamento"><span>💍</span></div>
+                  <span class="theme-label">Casamento</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="cha-bebe" aria-pressed="false">
+                  <div class="theme-img theme-img--cha-bebe"><span>🍼</span></div>
+                  <span class="theme-label">Chá de bebê</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="cha-panela" aria-pressed="false">
+                  <div class="theme-img theme-img--cha-panela"><span>🍳</span></div>
+                  <span class="theme-label">Chá de panela</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="carnaval" aria-pressed="false">
+                  <div class="theme-img theme-img--carnaval"><span>🎭</span></div>
+                  <span class="theme-label">Carnaval</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="pascoa" aria-pressed="false">
+                  <div class="theme-img theme-img--pascoa"><span>🐣</span></div>
+                  <span class="theme-label">Páscoa</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="sao-joao" aria-pressed="false">
+                  <div class="theme-img theme-img--sao-joao"><span>🎆</span></div>
+                  <span class="theme-label">São João</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="halloween" aria-pressed="false">
+                  <div class="theme-img theme-img--halloween"><span>🎃</span></div>
+                  <span class="theme-label">Halloween</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="natal" aria-pressed="false">
+                  <div class="theme-img theme-img--natal"><span>🎄</span></div>
+                  <span class="theme-label">Natal</span>
+                </button>
+
+                <button type="button" class="theme-btn" data-theme="outro" aria-pressed="false">
+                  <div class="theme-img theme-img--outro"><span>✨</span></div>
+                  <span class="theme-label">Outro</span>
+                </button>
+
+              </div>
+              <input type="hidden" name="theme" id="theme-input" value="aniversario">
+            </div>
+
+            <!-- Style toggle + Cover photo -->
+            <div class="field-row field-row--style">
+              <div class="field">
+                <label class="field-label">Estilo</label>
+                <div class="toggle-wrap">
+                  <label class="toggle" for="style-toggle" aria-label="Alternar estilo escuro">
+                    <input type="checkbox" id="style-toggle" name="dark-mode">
+                    <span class="toggle-track">
+                      <span class="toggle-thumb"></span>
+                    </span>
+                  </label>
+                  <span class="toggle-lbl" id="style-label">Escuro</span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label">Foto de capa</label>
+                <div class="file-wrap">
+                  <label class="file-btn" for="cover-photo">
+                    <i data-lucide="upload"></i>
+                    Selecionar
+                  </label>
+                  <input
+                    type="file"
+                    id="cover-photo"
+                    name="cover-photo"
+                    accept="image/*"
+                  >
+                  <span class="file-name-display" id="file-name">Nenhum arquivo selecionado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ──────────────────────────────── -->
+          <!-- Section: Dados para contato      -->
+          <!-- ──────────────────────────────── -->
+          <section class="form-section">
+            <h2 class="section-heading">
+              <i data-lucide="user-round"></i>
+              Dados para contato
+            </h2>
+
+            <div class="field">
+              <label class="field-label" for="contact-name">Nome</label>
+              <input
+                class="input"
+                type="text"
+                id="contact-name"
+                name="contact-name"
+                placeholder="Nome completo"
+                required
+              >
+              <span class="error-msg" id="name-error">
+                <i data-lucide="alert-circle"></i>
+                Campo obrigatório
+              </span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="field-label" for="email">E-mail</label>
+                <input
+                  class="input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="exemplo@email.com"
+                >
+                <span class="error-msg" id="email-error">
+                  <i data-lucide="alert-circle"></i>
+                  E-mail inválido
+                </span>
+              </div>
+              <div class="field">
+                <label class="field-label" for="phone">Telefone</label>
+                <input
+                  class="input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="(99) 99999-9999"
+                  maxlength="15"
+                >
+              </div>
+            </div>
+          </section>
+
+          <!-- ──────────────────────────────── -->
+          <!-- Terms & Checkboxes               -->
+          <!-- ──────────────────────────────── -->
+          <div class="terms">
+            <label class="checkbox-wrap">
+              <input type="checkbox" name="terms" id="terms" required>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">
+                Li e concordo com os
+                <a href="#" class="link">Termos e Condições</a>
+                e com a
+                <a href="#" class="link">Política de Privacidade</a>
+              </span>
+            </label>
+            <span class="error-msg" id="terms-error">
+              <i data-lucide="alert-circle"></i>
+              Você precisa aceitar os termos para continuar
+            </span>
+
+            <label class="checkbox-wrap">
+              <input type="checkbox" name="email-promo">
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Aceito receber atualizações e promoções por e-mail</span>
+            </label>
+
+            <label class="checkbox-wrap">
+              <input type="checkbox" name="sms-promo">
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Aceito receber atualizações e promoções por SMS</span>
+            </label>
+          </div>
+
+          <!-- ──────────────────────────────── -->
+          <!-- Submit                           -->
+          <!-- ──────────────────────────────── -->
+          <div class="form-footer">
+            <button type="submit" class="btn-primary">
+              <i data-lucide="ticket"></i>
+              Gerar convite
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" aria-live="polite">
+    <i data-lucide="check-circle"></i>
+    <span id="toast-message">Convite gerado com sucesso!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
