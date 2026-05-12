@@ -63,27 +63,25 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   Layout: sidebar + main
+   Layout: sidebar + main (app-shell)
 ───────────────────────────────────────── */
 .layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* ─────────────────────────────────────────
    Sidebar
 ───────────────────────────────────────── */
 .sidebar {
-  width: var(--sidebar-w);
-  min-width: var(--sidebar-w);
+  width: clamp(240px, 30%, 340px);
+  height: 100vh;
   background: var(--shape-bg);
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .sidebar-header {
@@ -133,13 +131,14 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   Main content area
+   Main content area (only this scrolls)
 ───────────────────────────────────────── */
 .main {
   flex: 1;
-  background: var(--shape-body);
-  min-height: 100vh;
+  height: 100vh;
   overflow-y: auto;
+  background: var(--shape-body);
+  min-width: 0;
 }
 
 .main-inner {
@@ -709,47 +708,88 @@ input[type="file"] {
 }
 
 /* ─────────────────────────────────────────
-   Responsive
+   Responsive — Tablet (768px – 1199px)
+   Mantém duas colunas, ajusta espaçamentos
 ───────────────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
+  .main-inner {
+    padding: 40px 36px 80px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Responsive — Mobile (≤ 767px)
+   Sidebar vira banner de imagem no topo
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Deixa a página rolar normalmente */
   .layout {
     flex-direction: column;
+    height: auto;
+    overflow: visible;
   }
 
+  /* Sidebar vira hero banner */
   .sidebar {
     width: 100%;
-    min-width: unset;
-    height: auto;
-    position: static;
+    height: 220px;
+    flex-shrink: 0;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
+    position: relative;
+    background-image: url('assets/Background.png');
+    background-size: cover;
+    background-position: center 35%;
+    overflow: hidden;
+  }
+
+  /* Gradiente escuro para legibilidade do logo */
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(19, 21, 22, 0.25) 0%,
+      rgba(19, 21, 22, 0.85) 100%
+    );
+    z-index: 0;
   }
 
   .sidebar-header {
-    padding: 20px 24px;
-    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px 20px;
+    width: 100%;
   }
 
-  .sidebar-tagline {
-    display: none;
-  }
-
+  /* Esconde a imagem-filho (já está no background) */
   .sidebar-image {
     display: none;
   }
 
-  .main-inner {
-    padding: 32px 24px 60px;
+  .logo-text {
+    font-size: 32px;
   }
 
-  .themes-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .logo-icon {
+    width: 36px;
+    height: 36px;
   }
-}
 
-@media (max-width: 600px) {
+  /* Main volta ao fluxo normal */
+  .main {
+    height: auto;
+    overflow-y: visible;
+  }
+
   .main-inner {
-    padding: 24px 16px 60px;
+    padding: 28px 20px 60px;
+  }
+
+  .page-title {
+    font-size: 22px;
+    margin-bottom: 28px;
   }
 
   .field-row {
@@ -764,14 +804,10 @@ input[type="file"] {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .page-title {
-    font-size: 22px;
-    margin-bottom: 28px;
-  }
-
   .toast {
     bottom: 16px;
     right: 16px;
     left: 16px;
   }
+
 }
