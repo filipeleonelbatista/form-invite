@@ -429,19 +429,19 @@ body {
   color: var(--text-heading);
 }
 
-/* Theme gradient backgrounds */
-.theme-img--aniversario { background: linear-gradient(135deg, #f5a623 0%, #FF6B6B 50%, #c46a1e 100%); }
-.theme-img--infantil    { background: linear-gradient(135deg, #FF6EC7, #FF9FF3 30%, #48DBFB 70%, #FECA57 100%); }
-.theme-img--formatura   { background: linear-gradient(135deg, #1a2a3a 0%, #2d5a7a 50%, #c9a227 100%); }
-.theme-img--casamento   { background: linear-gradient(135deg, #3a2a20 0%, #6b4a35 40%, #c4a882 100%); }
-.theme-img--cha-bebe    { background: linear-gradient(135deg, #5b7fa6 0%, #7ab8e8 50%, #c479b5 100%); }
-.theme-img--cha-panela  { background: linear-gradient(135deg, #5a3010 0%, #a0622d 50%, #e8c97d 100%); }
-.theme-img--carnaval    { background: linear-gradient(135deg, #FF1493, #FFD700 40%, #00CED1 70%, #FF4500 100%); }
-.theme-img--pascoa      { background: linear-gradient(135deg, #6dbf7e 0%, #a8edea 50%, #f9d5a7 100%); }
-.theme-img--sao-joao    { background: linear-gradient(135deg, #FF4500 0%, #FF8C00 50%, #FFD700 100%); }
-.theme-img--halloween   { background: linear-gradient(135deg, #0a0a0a 0%, #2d1200 40%, #cc5500 100%); }
-.theme-img--natal       { background: linear-gradient(135deg, #8B0000 0%, #004d00 50%, #FFD700 100%); }
-.theme-img--outro       { background: linear-gradient(135deg, #2d3561 0%, #4a6fa5 60%, #7bafc4 100%); }
+/* Theme images */
+.theme-img--aniversario { background-image: url('assets/aniversario.png'); }
+.theme-img--infantil    { background-image: url('assets/infantil.png'); }
+.theme-img--formatura   { background-image: url('assets/formatura.png'); }
+.theme-img--casamento   { background-image: url('assets/casamento.png'); }
+.theme-img--cha-bebe    { background-image: url('assets/cha-de-bebe.png'); }
+.theme-img--cha-panela  { background-image: url('assets/cha-de-panela.png'); }
+.theme-img--carnaval    { background-image: url('assets/carnaval.png'); }
+.theme-img--pascoa      { background-image: url('assets/pascoa.png'); }
+.theme-img--sao-joao    { background-image: url('assets/sao-joao.png'); }
+.theme-img--halloween   { background-image: url('assets/halloween.png'); }
+.theme-img--natal       { background-image: url('assets/natal.png'); }
+.theme-img--outro       { background-image: url('assets/outro.png'); }
 
 /* ─────────────────────────────────────────
    Toggle switch
